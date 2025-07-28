@@ -26,7 +26,7 @@ In this lab, you will:
 
 In this task, you will create a Provider ID. This provides information to the recipient on how to identify you.
 
-The **Provider and Consumer** page is displayed. The **PROVIDE SHARE** and the **CONSUME SHARE** tools enable you to create a data share as a share provider and to subscribe and consume a data share as a recipient respectively. You can click the [Quick Start Guide](https://docs.oracle.com/en/database/oracle/sql-developer-web/sdwfd/index.html) button to view step by step instructions on how to use Oracle Autonomous Database as a data share provider and as a data share recipient. For the complete Data Share documentation, see [The Data Share Tool](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/adp-data-share-tool.html#GUID-7EECE78B-336D-4853-BFC3-E78A7B8398DB). You can also try one of the available Data Sharing LiveLabs workshops.
+You should be on the **Data Load** home page from the last lab. In the navigation pane on the left, drill-down on the **Data Share** node. The **PROVIDE SHARE** and the **CONSUME SHARE** tools enable you to create a data share as a share provider and to subscribe and consume a data share as a recipient respectively. You can click the [Quick Start Guide](https://docs.oracle.com/en/database/oracle/sql-developer-web/sdwfd/index.html) button to view step by step instructions on how to use Oracle Autonomous Database as a data share provider and as a data share recipient. For the complete Data Share documentation, see [The Data Share Tool](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/adp-data-share-tool.html#GUID-7EECE78B-336D-4853-BFC3-E78A7B8398DB). You can also try one of the available Data Sharing LiveLabs workshops.
 
 1. Make sure you are still logged in as the **share_provider** user. In the navigation pane on the left, drill-down on **Data Share** if needed, and then click **Provide Share**.
 
@@ -50,7 +50,7 @@ The **Provider and Consumer** page is displayed. The **PROVIDE SHARE** and the *
 
     The **Provider Identification** panel is displayed.
 
-3. In the **General** tab, specify the following:
+3. Specify the following:
 
     * **Name:** Enter **`training_share`**.
     * **Email:** Enter the email address for the provider such as **`training_share@outlook.com`**.
@@ -100,27 +100,27 @@ When you create the data share using the share live data using direct connection
 
     ![The table is added.](images/table-added.png " ")
 
-8. On the **Recipients** page, there are no recipients available initially. Click the **Select Recipient** drop-down list, and then select **MY_TENANCIES** from the list. Next, create a new recipient that will consume this data share. Click **New Recipient**.
+8. On the **Recipients** page, there are no recipients available initially. Click the **Select Recipient** drop-down list, and then select **MY_TENANCY** from the list. Next, create a new recipient that will consume this data share. Click **New Recipient**.
 
     ![Click recipient.](images/click-recipient.png " ")
 
-9. In the **Create Share Recipient** panel, enter **`training_recipient`** as the name of the recipient, an optional description, and paste the sharing id that you copied to your clipboard in the **Sharing ID** field.
+9. In the **Create Share Recipient** panel, enter **`training_recipient`** as the name of the recipient, an optional description, an email address, and paste the sharing id that you copied to your clipboard in the **Sharing ID** field.
 
-    ![Create the new recipient.](images/create-new-recipient.png " ")
+    ![Create the new recipient.](images/create-new-recipient.png =65%x*)
 
 10. Click **Create**. The **Recipients** wizard's page is re-displayed. The newly created **TRAINING_RECIPIENT** is displayed on the page.
 
     ![Click Create.](images/recipient-wizard-page.png " ")
 
-11. **Create** to create the data share. The **Provide Share** page is displayed. The new data share is displayed in the entities section. An informational message is displayed about the publishing process of the data share has started.
+11. Click **Create** to create the data share. The **Provide Share** page is displayed. The new data share is displayed in the entities section. An informational message is displayed about the publishing process of the data share has started.
 
     ![Data share created.](images/data-share-created.png " ")
 
-12. You can click the Actions icon (ellipsis) to view the data share details.
+12. You can click the **Actions** icon (ellipsis) to view the data share details.
 
     ![Click Actions.](images/click-actions.png " ")
 
-13. Log out of the **`SHARE_PROVIDER`** user. On the **Oracle Database Actions | Data Share** banner, click the drop-down list next to the `SHARE_PROVIDER` user, and then select **Sign Out** from the drop-down menu. If you are prompted to leave, click **Leave**.
+13. Log out of the **`SHARE_PROVIDER`** user. On the **Oracle Database Actions | Data Share** banner, click the drop-down list next to the `SHARE_PROVIDER` user, and then select **Sign Out** from the drop-down menu.
 
 You may now proceed to the next lab.
 
@@ -134,14 +134,14 @@ You may now proceed to the next lab.
 
 * **Author:** Lauran K. Serhal, Consulting User Assistance Developer
 * **Contributor:** Alexey Filanovskiy, Senior Principal Product Manager
-* **Last Updated By/Date:** Lauran K. Serhal, July 2024
+* **Last Updated By/Date:** Lauran K. Serhal, July 2025
 
 Data about movies in this workshop were sourced from Wikipedia.
 
-Copyright (C) 2024, Oracle Corporation.
+Copyright (C) 2025, Oracle Corporation.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-A copy of the license is included in the section entitled [GNU Free Documentation License](files/gnu-free-documentation-license.txt)
+A copy of the license is included in the section entitled [GNU Free Documentation License](https://oracle-livelabs.github.io/adb/shared/adb-15-minutes/introduction/files/gnu-free-documentation-license.txt)

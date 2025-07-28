@@ -22,18 +22,54 @@ This lab assumes that you have successfully completed all of the preceding labs 
 
 ## Task 1: Navigate to the SQL Worksheet
 
-1. Log in to the **Oracle Cloud Console**, if you are not already logged in.
+<if type="livelabs">
+Your green button reservation includes an ADB instance. You can find the required credentials in the **Reservation Information** dialog box for your reservation. To log in to the Console, click the **Launch OCI** button in the **Reservation Information** dialog box, and then follow the prompts to reset your assigned password. 
+
+ ![The Reservation Information dialog box.](./images/ll-reservation-information.png =65%x*)
+</if>
+
+1. Log in to the **Oracle Cloud Console**, if you are not already logged in; otherwise, skip to step 4.
 
 2. Open the **Navigation** menu and click **Oracle Database**. Under **Oracle Database**, click **Autonomous Database**.
 
-3. On the **Autonomous Databases** page, click your **ADW-Data-Lake** ADB instance.
-    ![The Autonomous Database is displayed and highlighted.](./images/adb-page.png " ")
+<if type="livelabs">
+    > **_Important: At the time of updating this workshop (July 15, 2025), there is a known issue with OCI and using the sandbox environment reservations (the green button). The old Autonomous Databases UI page is displayed instead of the new Redwood UI page._**
 
-4. On the **Autonomous Database details** page, click the **Database actions** drop-down list, and then click **SQL**.
+    ![The old Autonomous Databases page.](images/old-adb-page.png =65%x*)
+
+    To correct this issue, simply click **Reload this page** icon in your browser. The newly designed **Autonomous Databases** page is displayed. 
+    
+    >**Note:** The **Couldn't load data** error on the page is due to being in the wrong compartment. You will learn how to navigate to your assigned compartment next. 
+
+    ![Forbidden error.](images/forbidden-error.png =65%x*)
+
+    OCI resources are organized into compartments. To navigate to your assigned sandbox reservation compartment, click the **Compartment** field. Next, enter your assigned compartment name (or partial name) from the **Reservation Information** page in the **Compartment** text box. Once your assigned compartment is displayed in the drop-down list under the **`Livelabs`** node, click it.
+    
+    ![Select your assigned compartment.](images/ll-select-compartment.png =65%x*)
+
+    >**Note:** For more details on finding your assigned resources in your reservation such as the username, password, compartment and so on, review the **Get Started with LiveLabs** lab in the Navigation menu on the left.
+
+    
+</if>
+
+3. On the **Autonomous Databases** page, click your **ADW-Data-Lake** ADB instance.
+
+    <if type="freetier">
+    ![The Autonomous Database is displayed and highlighted.](./images/adb-page.png =65%x*)
+    </if>
+
+    <if type="livelabs">
+    ![The Autonomous Database is displayed and highlighted.](./images/ll-adb-page.png =65%x*)
+
+    >**Note:** Since you are using a Sandbox environment, an ADB instance was created for you. To view the ADB instance details, click the **View Login Info** link to display the **Reservation Information** dialog box. The database admin password, database name, and database display name are displayed.
+
+    </if>
+
+4. On the **ADW-Data-Lake** Autonomous Database page, click the **Database actions** drop-down list, and then click **SQL**.
 
     ![On the partial Autonomous Database Details page, the Database Actions button is highlighted.](./images/click-db-actions.png " ")
 
-5. The SQL Worksheet is displayed.
+5. The SQL Worksheet is displayed. Close any informational boxes that are displayed.
 
     ![The SQL worksheet is displayed.](./images/sql-worksheet.png " ")
 
@@ -103,7 +139,7 @@ Autonomous Database comes with a predefined database role named `DWROLE`. This r
 
     ![Determine the consumer share id](images/get-sharing-id.png)
 
-2. Copy the **`get_sharing_id`** value to a text editor of your choice. You will need this value later. Click the **eye** icon. The **`get_sharing_id`** value is highlighted.
+2. Copy the **`get_sharing_id`** value to a text editor of your choice. You will need this value later. Right-click the **`get_sharing_id`** value, and then click **Copy** from the context.
 
     ![Copy the sharing id value](images/copy-sharing-id.png)
 
@@ -123,12 +159,12 @@ Autonomous Database comes with a predefined database role named `DWROLE`. This r
 
     ![Logged in as share_provider](images/logged-share-provider.png)
 
-    The SQL Worksheet is displayed.
+    The SQL Worksheet is displayed. If an information box is displayed, close it.
 
     ![The SQL Worksheet is displayed for the share_provider user](images/share-provider-worksheet.png)
 
 
-5. Provide the share provider user identity information. This enables consumers to see this share provider user and the user's shared data. This is a free formed metadata. Provide a meaningful **name**, **description**, and an **email** address. Copy and paste the following script into your SQL Worksheet, and then click the **Run Script (F5)** icon in the Worksheet toolbar.
+5. Provide the share provider user identity information. This enables consumers to see this share provider user and the user's shared data. This is a free form metadata. Provide a meaningful **name**, **description**, and an **email** address. Copy and paste the following script into your SQL Worksheet, and then click the **Run Script (F5)** icon in the Worksheet toolbar.
 
     ```
     <copy>
@@ -171,14 +207,14 @@ You may now proceed to the next lab.
 
 * **Author:** Lauran K. Serhal, Consulting User Assistance Developer
 * **Contributor:** Alexey Filanovskiy, Senior Principal Product Manager
-* **Last Updated By/Date:** Lauran K. Serhal, April 2024
+* **Last Updated By/Date:** Lauran K. Serhal, July 2025
 
 Data about movies in this workshop were sourced from Wikipedia.
 
-Copyright (c) 2024 Oracle Corporation.
+Copyright (c) 2025, Oracle Corporation.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-A copy of the license is included in the section entitled [GNU Free Documentation License](files/gnu-free-documentation-license.txt)
+A copy of the license is included in the section entitled [GNU Free Documentation License](https://oracle-livelabs.github.io/adb/shared/adb-15-minutes/introduction/files/gnu-free-documentation-license.txt)

@@ -48,15 +48,15 @@ This lab requires completion of **Lab 1: Set up the Workshop Environment > Task 
 
 ## Task 2: Link to Data in Public Object Storage Buckets and Create External Tables
 
-In this task, you will link to data and create the following external tables in your Autonomous Database instance: **`customer_contact`**, **`genre`**, **`pizza_locations`**, and **`sales_sample`**.
+In this task, you will link to data and create the following external tables in your Autonomous Database instance: **`customer_contact`**, **`pizza_locations`**, and **`sales_sample`**.
 
-1. On the **Data Load Dashboard**, click the **LINK DATA** tile.
+1. On the **Data Load Dashboard**, click the **Link Data** tile.
 
     ![Click Link Data.](images/click-link-data.png)
 
 2. On the **Link Data** page, the **Cloud Store** tab is selected by default.
 
-    ![Select Link Data and Cloud Store.](images/link-data-page.png)
+    ![Select Link Data and Cloud Store.](images/link-data-page.png " ")
 
 3. Copy the following object storage URL and paste it in the **Select Cloud Store Location or enter public URL** field. The **`moviestream_landing`** Oracle Object Storage bucket that contains the data is located in a different tenancy than yours, **c4u04**; therefore, you will use the following URL.
 
@@ -70,23 +70,23 @@ In this task, you will link to data and create the following external tables in 
 
 4. A list of the folders in the selected Object Storage bucket is displayed on left side section of the page. You can drag and drop the desired folders from this public bucket from this section to the data linking job section on the right.
 
-    ![The Load Cloud Object page appears](images/bucket-folders-displayed.png)
+    ![The Load Cloud Object page appears](images/bucket-folders-displayed.png " ")
 
 5. Drag the **`customer_contact`** folder and drop it onto the data linking job section.
 
-    ![Drag the customer_contact folder](images/drag-drop-customer-contact.png)
+    ![Drag the customer_contact folder](images/drag-drop-customer-contact.png " ")
 
 6. A **Link to Single Target Table** dialog box is displayed to prompt you whether or not you want to link all objects in this folder matching **.csv** to a single target table. This folder contains a single file, `customer-contact.csv`. In general, data lake folders contain many files of the same type, as you will see with sales data. Click **Yes**.
 
-    ![Click yes to load objects to a single table.](images/link-to-single-table.png =60%x*)
-
     The **`customer_contact`** target table to be created for the selected `.csv` file is displayed in the data linking job section.
+
+    >**Note:** If you get a warning, ignore it.
 
     ![The customer_contact target table is displayed.](images/customer_contact-target-table.png)
 
-7. Drag and drop the **`genre`**, **`sales_sample`**, and **`pizza_location`** folders onto the data linking job section. Click **Yes** when prompted for each target table.
+7. Drag and drop the **`sales_sample`** and **`pizza_location`** folders onto the data linking job section. Click **Yes** when prompted for each target table.
 
-    ![Drag and drop three more folders.](images/drag-drop-3-folders.png)
+    ![Drag and drop three more folders.](images/drag-drop-2-folders.png)
 
 8. Click the **Settings** icon (pencil) for the **`customer_contact`** link task to view its settings.
 
@@ -100,15 +100,19 @@ In this task, you will link to data and create the following external tables in 
 
 10. Click the **Settings** icon (pencil) for the **`sales_sample`** link task to view its settings.
 
-    ![View the sales-sample load task settings.](images/sales-sample-preview.png =60%x*)
+    ![View the sales-sample load task settings.](images/sales-sample-preview.png =65%x*)
 
-11. The Load tool makes intelligent choices for the target table name and properties. Since this is an initial load, accept the default option of **Create Table**, which conveniently creates the target table in the Autonomous Database instance, without the need to predefine the table in SQL. Change the name of the target table to be created from **SALES_SAMPLE** to **CUSTSALES**. Next, click **Close**.
+11. The Load tool makes intelligent choices for the target table name and properties. Since this is an initial load, accept the default option of **Create Table**, which conveniently creates the target table in the Autonomous Database instance, without the need to predefine the table in SQL. Change the name of the target table to be created from **`SALES_SAMPLE`** to **`CUSTSALES_EXT`**. Next, click **Close**.
 
     ![Update table name](images/change-target-table-name.png)
 
 12. Click **Start** to run the data link job. In the **Start Link From Cloud Store** dialog box, click **Run**.
 
-    ![Run the data load job](images/run-data-link.png)
+    ![Run the data load job](images/click-start.png " ")
+
+    In the **Start Link From Cloud Store** dialog box, click **Run**.
+
+    ![Run the data load job](images/click-run.png)
 
     > **Note:** The link job can take about 2 minutes to complete.
 
@@ -116,15 +120,15 @@ In this task, you will link to data and create the following external tables in 
 
     ![Load job tasks completed. View the genre load task settings.](images/link-completed.png)
 
-14. Click the **Settings** icon (pencil) for the **`genre`** load task to view its settings. Next, select **Table > View Details**.
+14. Click the **Settings** icon (pencil) for the **`CUSTSALES_EXT`** load task to view its settings. Next, select **Table > View Details**.
 
-    ![View genre details](images/view-genre-details.png)
+    ![View genre details](images/view-custsales-ext-details.png)
 
 15. The **Preview** tab is selected by default. This shows the **`genre`** data.
 
-    ![View genre data](images/preview-genre-table.png)
+    ![View genre data](images/preview-custsales-table.png)
 
-16. Click **Close** to exit the **genre** task preview and to return to the Data Load Dashboard.
+16. Click **Close** to return to the Data Load Dashboard.
 
      ![Return to Data Load Dashboard.](images/redisplay-data-load-dashboard.png)
 
@@ -206,15 +210,14 @@ You may now proceed to the next lab.
     * Alexey Filanovskiy, Senior Principal Product Manager
     * Mike Matthews, Autonomous Database Product Management
     * Marty Gubar, Autonomous Database Product Management
-    * Rick Green, Principal Developer, Database User Assistance
-* **Last Updated By/Date:** Lauran K. Serhal, April 2024
+* **Last Updated By/Date:** Lauran K. Serhal, July 2025
 
 Data about movies in this workshop were sourced from Wikipedia.
 
-Copyright (C) 2024 Oracle Corporation.
+Copyright (C) 2025 Oracle Corporation.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-A copy of the license is included in the section entitled [GNU Free Documentation License](files/gnu-free-documentation-license.txt)
+A copy of the license is included in the section entitled [GNU Free Documentation License](https://oracle-livelabs.github.io/adb/shared/adb-15-minutes/introduction/files/gnu-free-documentation-license.txt)

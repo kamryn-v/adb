@@ -25,28 +25,56 @@ In this lab, you will:
 
 ## Task 1: Navigate to the SQL Worksheet
 
-After you provisioned an ADB instance in the **Set up the Workshop Environment** lab, the **Autonomous Database details** page was displayed. If the page is active, start with **step 4** below. If the page had timed out, start with **step 1** below.
+<if type="livelabs">
+Your green button reservation includes an ADB instance. You can find the required credentials in the **Reservation Information** dialog box for your reservation. To log in to the Console, click the **Launch OCI** button in the **Reservation Information** dialog box, and then follow the prompts to reset your assigned password. 
 
-1. Log in to the **Oracle Cloud Console**, if you are not already logged in.
+ ![The Reservation Information dialog box.](./images/ll-reservation-information.png =65%x*)
+</if>
+
+1. Log in to the **Oracle Cloud Console**, if you are not already logged in; otherwise, skip to step 4.
 
 2. Open the **Navigation** menu and click **Oracle Database**. Under **Oracle Database**, click **Autonomous Database**.
 
+<if type="livelabs">
+    > **_Important: At the time of updating this workshop (July 15, 2025), there is a known issue with OCI and using the sandbox environment reservations (the green button). The old Autonomous Databases UI page is displayed instead of the new Redwood UI page._**
+
+    ![The old Autonomous Databases page.](images/old-adb-page.png =65%x*)
+
+    To correct this issue, simply click **Reload this page** icon in your browser. The newly designed **Autonomous Databases** page is displayed. 
+    
+    >**Note:** The **Couldn't load data** error on the page is due to being in the wrong compartment. You will learn how to navigate to your assigned compartment next. 
+
+    ![Forbidden error.](images/forbidden-error.png =65%x*)
+
+    OCI resources are organized into compartments. To navigate to your assigned sandbox reservation compartment, click the **Compartment** field. Next, enter your assigned compartment name (or partial name) from the **Reservation Information** page in the **Compartment** text box. Once your assigned compartment is displayed in the drop-down list under the **`Livelabs`** node, click it.
+    
+    ![Select your assigned compartment.](images/ll-select-compartment.png =65%x*)
+
+    >**Note:** For more details on finding your assigned resources in your reservation such as the username, password, compartment and so on, review the **Get Started with LiveLabs** lab in the Navigation menu on the left.
+
+    
+</if>
+
 3. On the **Autonomous Databases** page, click your **ADW-Data-Lake** ADB instance.
-    ![The Autonomous Database is displayed and highlighted.](./images/adb-page.png " ")
 
-    >**Note:** If you get a _Forbidden_ message on the **Autonomous Databases** page, that indicates that you are in the wrong compartment. Refer to the **Reservation Information** panel for your reservation and make a note of your assigned compartment. Next, on the same page, click the **Compartment** drop-down list in the **Scope** section, and selected your assigned compartment.
+    <if type="freetier">
+    ![The Autonomous Database is displayed and highlighted.](./images/adb-page.png =65%x*)
+    </if>
 
-4. On the **Autonomous Database details** page, click the **Database actions** drop-down list, and then click **SQL**.
+    <if type="livelabs">
+    ![The Autonomous Database is displayed and highlighted.](./images/ll-adb-page.png =65%x*)
 
-    ![From the Database Actions drop-down list, click SQL.](./images/click-db-actions-sql.png " ")
+    >**Note:** Since you are using a Sandbox environment, an ADB instance was created for you. To view the ADB instance details, click the **View Login Info** link to display the **Reservation Information** dialog box. The database admin password, database name, and database display name are displayed.
 
-5. The first time you open the SQL Worksheet, a series of pop-up informational boxes may appear, providing you with a tour that introduces the main features. If not, click the **Tour** icon (binoculars) in the upper right corner of the toolbar. To take the tour through the informational boxes, click **Next**. To exit the tour, click the **X** control.
+    </if>
 
-    ![SQL Worksheet.](./images/adb-sql-worksheet-opening-tour.png " ")
+4. On the **ADW-Data-Lake** Autonomous Database page, click the **Database actions** drop-down list, and then click **SQL**.
 
-6. Click the **X** control to exit the tour. The SQL Worksheet is displayed.
+    ![On the partial Autonomous Database Details page, the Database Actions button is highlighted.](./images/click-db-actions.png " ")
 
-    ![The SQL Worksheet is displayed.](./images/sql-worksheet.png " ")
+5. The SQL Worksheet is displayed. Close any informational boxes that are displayed.
+
+    ![The SQL worksheet is displayed.](./images/sql-worksheet.png " ")
 
 ## Task 2: Create a Share Provider User and Grant Privileges to the User
 
@@ -95,11 +123,11 @@ Autonomous Database comes with a predefined database role named `DWROLE`. This r
     </copy>
     ```
 
-    ![Run the script](images/run-script.png)
+    ![Run the script](images/run-script-share-provider.png)
 
     The results are displayed in the **Script Output** tab.
 
-    ![View the script results](images/script-results.png)
+    ![View the script results](images/script-results-share-provider.png)
 
 ## Task 3: (Optional) Create a Share Consumer User and Grant Privileges to the User
 
@@ -152,7 +180,7 @@ Autonomous Database comes with a predefined database role named `DWROLE`. This r
 
 3. Log in as the newly created user, **`share_provider`**. On the **Sign-in** page, enter **`share_provider`** as the username and **`DataShare4ADW`** as the password, and then click **Sign in**. The Database Actions Launchpad page is displayed.
 
-    ![Log in as share_provider](images/login-share-provider.png)
+    ![Log in as share_provider](images/login-share-provider.png =65%x*)
 
     You are now logged in as the newly created **`share_provider`** user. 
 
@@ -187,7 +215,23 @@ You should store the data share data in Object Storage. You will then create a l
 
 6. The new bucket is displayed on the **Buckets** page.
 
+<if type="freetier">
+
     ![The new bucket is displayed on the Buckets page.](./images/bucket-created.png " ")
+</if>
+
+<if type="livelabs">
+
+    ![The new bucket is displayed on the Buckets page.](./images/ll-bucket-created.png " ")
+</if>
+
+7. Next, you need to get the name of the namespace (tenancy) where this new bucket was created. You will need this namespace name in this workshop. In the row for the bucket, click the **Actions** icon (ellipsis), and then select **View Object Details** from the context menu.
+
+    ![Get the bucket's namespace.](./images/ll-get-bucket-namespace.png " ")
+
+    The **Bucket Details** page is displayed. The **Namespace** field displays the name of the namespace. The name is blurred for security reasons. Copy this name to your choice of text editor such as Notepad in Windows as you will need it in later steps.
+
+    ![Copy the bucket's namespace.](./images/ll-copy-bucket-namespace.png " ")
 
 ## Task 5: (Optional) Generate an RSA Key Pair and Get the Key's Fingerprint
 [](include:adb-generate-rsa-key-pair.md)
@@ -220,8 +264,9 @@ You will set up a connection to Oracle Object Storage by defining a cloud locati
     + Accept the **Select Credential** option. To access data in the Object Store, you need to enable your database user to authenticate itself with the Object Store using your OCI object store account and a credential. You do this by creating a private CREDENTIAL object for your user that stores this information encrypted in your Autonomous Data Warehouse. This information is only usable for your user schema.
     + Click **Create Credential**.
     + In the **Create Credential** dialog box, specify the following:
-        + **Credential Type:** Select the **Oracle Cloud Infrastructure Signing Keys** option.
         + **Credential Name:** Enter **DELTA\_SHARE\_CREDENTIAL**. **Note:** The credential name must conform to Oracle object naming conventions, which do not allow spaces or hyphens.
+        + **Cloud Service:** Accept the **`Oracle`** default selection.
+        + **Credential Type:** Select the **Oracle Cloud Infrastructure Signing Keys** option.
         + **Fingerprint:** Enter the fingerprint for your RSA key pair that you generated and copied to a text file in the previous task.
         + **Private Key:** Paste your unencrypted private key value.
         Open the private key file in a text editor, and then copy the entire content from the and _including_ **-----BEGIN PRIVATE KEY-----** line to and _including_ the **-----END PRIVATE KEY-----** line.
@@ -236,11 +281,11 @@ You will set up a connection to Oracle Object Storage by defining a cloud locati
     
     The **Add Cloud Store Location** panel is re-displayed. The newly created credential is displayed. If you already have a bucket, select it from the **Select Bucket** drop-down list. This populates the **Bucket URI** text box; otherwise, select the **Bucket URI** option, and then enter your bucket's URI in the **Bucket URI** text box. You identified your bucket's URI in **Task 4**. Remember to use this general structure, swapping in your own values. _Remember, don't include the trailing slash after the **`/o`**; otherwise, you will get an error_.
     
-    >**Note:** Substitute the URI value in the following code with your own bucket's URI. In our example, we replaced the actual tenancy name in the URI value with the **`namespace  name`** place holder for security.
+    >**Note:** Substitute the URI value in the following code with your own bucket's URI . In our example, we replaced the actual tenancy name in the URI value with the **`namespace  name`** place holder for security. Make sure you use the tenancy name for your bucket that you saved in **Task 4 > Step 7** and not the one found in the **Reservation Information** dialog box.
 
-    `https://objectstorage.region name.oraclecloud.com/n/namespace name/b/data-share-bucket/o`
+    `https://objectstorage.region name.oraclecloud.com/n/bucket namespace name/b/data-share-bucket/o`
 
-    In our example, we selected our **data-share-bucket** from the **Select Bucket** drop-down list.
+    In our example, we selected our **data-share-bucket** from the **Select Bucket** drop-down list. The URI is displayed in the **Bucket URI** field.
 
     ![Complete the Add Cloud Store Location.](./images/complete-add-cloud-store-location.png " ")
 
@@ -264,14 +309,14 @@ You may now proceed to the next lab.
 
 * **Author:** Lauran K. Serhal, Consulting User Assistance Developer
 * **Contributor:** Alexey Filanovskiy, Senior Principal Product Manager
-* **Last Updated By/Date:** Lauran K. Serhal, June 2024
+* **Last Updated By/Date:** Lauran K. Serhal, July 2025
 
 Data about movies in this workshop were sourced from Wikipedia.
 
-Copyright (C) 2024, Oracle Corporation.
+Copyright (C) 2025, Oracle Corporation.
 
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3
 or any later version published by the Free Software Foundation;
 with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-A copy of the license is included in the section entitled [GNU Free Documentation License](files/gnu-free-documentation-license.txt)
+A copy of the license is included in the section entitled [GNU Free Documentation License](https://oracle-livelabs.github.io/adb/shared/adb-15-minutes/introduction/files/gnu-free-documentation-license.txt)
